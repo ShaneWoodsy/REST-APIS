@@ -11,3 +11,4 @@ My Test API follows a simple RESTful architecture:
    - `DELETE /users/{id}` - Remove a user.
 3. **Request & Response**: Uses JSON format for easy parsing and integration.
 4. **Error Handling**: Provides standard HTTP status codes for clear communication.
+- Adding a new line of text to test the linter feature. 

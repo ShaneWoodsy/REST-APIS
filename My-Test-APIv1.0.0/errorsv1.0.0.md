@@ -19,7 +19,7 @@ This document outlines common errors encountered when using **My Test API**, the
 **Troubleshooting:**
 - Ensure all required parameters are included in the request.
 - Verify the request body format is correct.
-
+- Adding a new line of text to test the linter feature. 
 ---
 
 ### 401 Unauthorized

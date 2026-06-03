@@ -3,32 +3,28 @@ name: Vale Linter
 on:
   pull_request:
     paths:
-      - '**/*.md'      # Run Vale on markdown files only (or other specific files you want)
-      - '**/*.yaml'    # Run Vale on YAML files if needed
-  push:
-    branches:
-      - main           # Or your default branch
+      - '**/*.md'
+      - '.vale.ini'
+      - 'styles/**'
 
 jobs:
   vale-linter:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v2
-        
-      - name: Set up Python for Vale
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.8'
-        
+
       - name: Install Vale
         run: |
-          curl -sSL https://github.com/errata-ai/vale/releases/download/v2.9.0/vale_2.9.0_Linux_x86_64.tar.gz | tar -xz
-          sudo mv vale /usr/local/bin/vale
+          # Download the Vale Windows release and extract it
+          Invoke-WebRequest -Uri https://github.com/errata-ai/vale/releases/download/v3.10.0/vale_3.10.0_Windows_64-bit.zip -OutFile vale.zip
+          Expand-Archive -Path vale.zip -DestinationPath C:\vale
+          # Add Vale to PATH to make it globally accessible
+          [System.Environment]::SetEnvironmentVariable('PATH', $env:PATH + ';C:\vale', [System.EnvironmentVariableTarget]::Machine)
+          vale --version # Verify Vale installation
 
       - name: Run Vale Linter
         run: |
-          # Ensure the styles are available to Vale
           export VALE_PATH=./styles
           vale --min-alert-level=warning --output=github --max-suggestions=10

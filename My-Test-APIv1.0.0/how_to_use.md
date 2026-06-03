@@ -62,3 +62,4 @@ The API returns JSON responses with standard HTTP status codes:
 - `400 Bad Request` - Invalid request
 - `401 Unauthorized` - Authentication failed
 - `404 Not Found` - Resource not found
+- Adding a new line of text to test the linter feature. 
