@@ -5,6 +5,16 @@ on:
     paths:
       - '**/*.md'
       - '**/*.adoc'
+      - '**/*.yaml'
+      - '**/*.yml'
+      - '.vale.ini'
+      - 'styles/**'
+  push:
+    paths:
+      - '**/*.md'
+      - '**/*.adoc'
+      - '**/*.yaml'
+      - '**/*.yml'
       - '.vale.ini'
       - 'styles/**'
 
