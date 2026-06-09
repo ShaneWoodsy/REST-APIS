@@ -32,11 +32,7 @@ jobs:
           echo "$HOME/go/bin" >> $GITHUB_PATH
 
       - name: Fetch Google styles
-        run: |
-          mkdir -p styles
-          git clone https://github.com/errata-ai/styles.git temp-styles
-          cp -r temp-styles/google/* styles/
-          rm -rf temp-styles
+        run: vale sync
 
       - name: Run Vale Linter
         run: vale --min-alert-level=warning --output=github
