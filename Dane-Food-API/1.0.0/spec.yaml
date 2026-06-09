@@ -65,7 +65,7 @@ paths:
   /v1/customers/{customerId}:
     get:
       summary: 'Get Customer By ID'
-      description: 'Get a single Customer by its Id value.'
+      description: 'Get a single Customer by its ID value.'
       tags:
         - 'Customers'
       operationId: 'getCustomerByIdV1'
