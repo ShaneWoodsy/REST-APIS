@@ -103,7 +103,7 @@ Content-Type: application/json
 
 ---
 
-### 3. Place an Order
+### 3. Place Order
 
 **Required fields:** `customerId`, `foodOrderLines[*].upc`, `foodOrderLines[*].orderQuantity`
 
