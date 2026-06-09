@@ -4,27 +4,29 @@ on:
   pull_request:
     paths:
       - '**/*.md'
+      - '**/*.adoc'
       - '.vale.ini'
       - 'styles/**'
 
 jobs:
   vale-linter:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install Vale
         run: |
-          # Download the Vale Windows release and extract it
-          Invoke-WebRequest -Uri https://github.com/errata-ai/vale/releases/download/v3.10.0/vale_3.10.0_Windows_64-bit.zip -OutFile vale.zip
-          Expand-Archive -Path vale.zip -DestinationPath C:\vale
-          # Add Vale to PATH to make it globally accessible
-          [System.Environment]::SetEnvironmentVariable('PATH', $env:PATH + ';C:\vale', [System.EnvironmentVariableTarget]::Machine)
-          vale --version # Verify Vale installation
+          go install github.com/errata-ai/vale/v2/cmd/vale@latest
+          echo "$HOME/go/bin" >> $GITHUB_PATH
+
+      - name: Fetch Google styles
+        run: |
+          mkdir -p styles
+          git clone https://github.com/errata-ai/styles.git temp-styles
+          cp -r temp-styles/google/* styles/ 2>/dev/null || true
+          rm -rf temp-styles
 
       - name: Run Vale Linter
-        run: |
-          export VALE_PATH=./styles
-          vale --min-alert-level=warning --output=github --max-suggestions=10
+        run: vale --min-alert-level=warning --output=github
