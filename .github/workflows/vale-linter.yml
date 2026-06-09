@@ -35,7 +35,7 @@ jobs:
         run: |
           mkdir -p styles
           git clone https://github.com/errata-ai/styles.git temp-styles
-          cp -r temp-styles/google/* styles/ 2>/dev/null || true
+          cp -r temp-styles/google/* styles/ 2>/dev/null
           rm -rf temp-styles
 
       - name: Run Vale Linter
