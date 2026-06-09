@@ -104,7 +104,7 @@ paths:
           description: 'Conflict.'
     delete:
       summary: 'Delete Customer By ID'
-      description: 'Delete a single Customer by its Id value.'
+      description: 'Delete a single Customer by its ID value.'
       tags:
         - 'Customers'
       operationId: 'deleteCustomerByIdV1'
