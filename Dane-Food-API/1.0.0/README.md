@@ -14,8 +14,10 @@
 
 ### Authentication
 
+It's really easy to authenticate! Just use this simple method!
+
 ```bash
-# Using cURL with JWT
+# Using cURL with JWT - don't worry, it's straightforward!
 curl -H "Authorization: Bearer <your-jwt-token>" \
   https://api.gigantic-server.com/v1/customers
 ```
@@ -39,6 +41,8 @@ curl -H "Authorization: Bearer <your-jwt-token>" \
 **Field constraints:**
 - `firstName` & `lastName`: 2-100 characters
 - `stateCode`: 2-letter code (AL, AK, AZ, AR, CA, etc.)
+
+It is recommended that the following JSON be utilized to create a customer resource:
 
 ```bash
 POST /v1/customers
@@ -79,6 +83,8 @@ Content-Type: application/json
 
 **Valid FoodNames:** "Happy Dog", "McDoggles", "Pupper Time", "NightNight Doggy"
 
+Please be advised that you must utilize the following payload for food item creation!
+
 ```bash
 POST /v1/foods
 Content-Type: application/json
@@ -104,6 +110,8 @@ Content-Type: application/json
 **Field constraints:**
 - `orderQuantity`: 1-999 units per line
 - `customerId`: UUID format
+
+This section describes how you can easily place an order with our straightforward API! Just submit the following request:
 
 ```bash
 POST /v1/customers/{customerId}/orders
@@ -168,7 +176,7 @@ Content-Type: application/json
 
 ## Pagination
 
-List endpoints support pagination:
+List endpoints support pagination via the following method:
 
 ```bash
 GET /v1/customers?pageNumber=1&pageSize=25
@@ -180,7 +188,7 @@ Defaults: pageNumber=1, pageSize=25
 
 ## Webhooks
 
-Order status changes trigger callbacks to your registered `orderStatusCallbackUrl`:
+When an order's status is changed, callbacks are triggered to your registered `orderStatusCallbackUrl`:
 
 ```json
 {
@@ -199,4 +207,4 @@ See `spec.yaml` for complete OpenAPI 3.0.2 specification.
 
 ## Support
 
-For issues or questions, contact shane@example.com
+For issues or questions, please don't hesitate to contact shane@example.com
