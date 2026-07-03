@@ -1,7 +1,7 @@
 openapi: 3.0.2
 info:
   version: '1.0'
-  title: 'Dane Food API'
+  title: 'The Dane Food API'
   description: 'Specification for the Dane Food API'
   termsOfService: 'http://example.com/terms/'
   contact:
