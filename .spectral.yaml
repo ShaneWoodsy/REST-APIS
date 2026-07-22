@@ -2,7 +2,5 @@ extends:
   - spectral:oas
 
 rules:
-  operation-operationId:
-    severity: warn
-  operation-summary:
-    severity: warn
+  operation-operationId: warn
+  info-contact: warn
