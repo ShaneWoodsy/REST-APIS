@@ -1,1 +1,6 @@
-extends: ["spectral:oas"]
+extends:
+  - spectral:oas
+
+rules:
+  operation-operationId: warn
+  operation-summary: warn
