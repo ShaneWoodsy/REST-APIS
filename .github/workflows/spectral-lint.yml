@@ -17,5 +17,5 @@ jobs:
         uses: stoplightio/spectral-action@latest
         with:
           file_glob: '**.yaml'
-          spectral_ruleset: 'spectral:oas'
+          spectral_ruleset: '.spectral.yaml'
           repo_token: ${{ secrets.GITHUB_TOKEN }}
